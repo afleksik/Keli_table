@@ -26,10 +26,6 @@ def print_cayley_table(table, elements):
         print("-" * ((len(elements) + 1) * 8))
 
 
-#def check_operation(operation_char, operation):
-
-
-
 elements = []
 
 print(
@@ -49,13 +45,13 @@ else:
     print("Incorrect input!")
     exit()
 
-print("Do you want to build a group modulo some number enter this number? Y/n")
+print("Do you want to build a group modulo some number? Y/n")
 enter = input()
 if (enter == "y") or (enter == "Y"):
     print("Enter your number:")
     n = int(input())
     print(
-        "Do you want to create group where all the elements are mutually simple" 
+        "Do you want to create group where all the elements are mutually simple " 
         "with the entered number? Y/n"
         )
     enter = input()
@@ -67,29 +63,40 @@ if (enter == "y") or (enter == "Y"):
         for i in range(1, n):
             if math.gcd(n, i) == 1:
                 elements.append(i)
-    else:
+    elif (enter == "n") or (enter == "N"):
         if operation_char == "*":
-            operation = lambda x, y: (x * y)
+            operation = lambda x, y: (x * y) % n
         else:
-            operation = lambda x, y: (x + y)
+            operation = lambda x, y: (x + y) % n
         for i in range(1, n):
             elements.append(i)
+elif (enter == "n") or (enter == "N"):
+    print("Enter your number:")
+    n = int(input())
+    if operation_char == "*":
+        operation = lambda x, y: (x * y)
+    else:
+        operation = lambda x, y: (x + y)
+    for i in range(1, n):
+        elements.append(i)
+
 
 
 table = generate_cayley_table(elements, operation)
 print_cayley_table(table, elements)
 
-
+print("Порядки элементов группы:")
 print("Порядок [1] = 1")
 x = 1
 for i in range(1, len(elements) - 1):
     while (elements[i]**x % n != 1):
         x += 1
         if (x == 10):
-            print("Порядок = inf")
+            print(f"Порядок [{elements[i]}] = inf")
             break
     print(f"Порядок [{elements[i]}] = {x}")
     x = 1
+    
 
 
 
