@@ -97,6 +97,3 @@ for i in range(1, len(elements) - 1):
     print(f"Порядок [{elements[i]}] = {x}")
     x = 1
     
-
-
-
