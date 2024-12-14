@@ -30,8 +30,8 @@ elements = []
 
 print(
     "This is Keli table generator, which describes the structure of finite "
-    "algebraic systems with a single binary operation. The table allows you to " 
-    "determine whether a group is Abelian, find the core of the group and the "
+    "algebraic systems with \n a single binary operation. The table allows you to " 
+    "determine whether a group \n is Abelian, find the core of the group and the "
     "inverse elements with respect to other elements in this group. \n"
     )
 

@@ -17,6 +17,8 @@ This project is a Cayley Table generator that describes the structure of finite 
 4. Enter the number for the group. 
 5. For modulo groups, choose if elements should be mutually prime to the entered number.
 
+<img src="img/usage.png">
+
 ▎Example
 
 - Input: 
